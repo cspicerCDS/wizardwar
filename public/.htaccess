@@ -1,9 +1,18 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
-    RewriteRule ^index\.html$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-l
-    RewriteRule . /index.html [L]
+    
+    # If the requested resource exists, serve it
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # If requesting the root path, serve index.html
+    RewriteRule ^$ index.html [L]
+    
+    # For 404 errors, redirect to 404.html
+    ErrorDocument 404 /404.html
+    
+    # For all other requests, rewrite to index.html
+    RewriteRule ^ index.html [L]
 </IfModule> 
