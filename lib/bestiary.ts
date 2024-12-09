@@ -6,7 +6,7 @@ export const creatures: Creature[] = [
     id: "mutant-rat",
     name: "Mutant Rat",
     type: "beast",
-    image: `${getBasePath()}/images/creatures/mutant-rat.jpg`,
+    image: `${getBasePath()}/images/creatures/rat.png`,
     description: "A massive, radiation-warped rodent with glowing eyes.",
     stats: {
       hd: 1,
@@ -34,7 +34,7 @@ export const creatures: Creature[] = [
     id: "wasteland-stalker",
     name: "Wasteland Stalker",
     type: "humanoid",
-    image: `${getBasePath()}/images/creatures/scav.webp`,
+    image: `${getBasePath()}/images/creatures/stalkerwip.png`,
     description: "A cunning survivor equipped with makeshift armor and scavenged weapons.",
     stats: {
       hd: 2,
@@ -117,7 +117,7 @@ export const creatures: Creature[] = [
     id: "psi-raider",
     name: "Psi-Raider",
     type: "humanoid",
-    image: `${getBasePath()}/images/creatures/psi-raider.jpg`,
+    image: `${getBasePath()}/images/creatures/raiderwip.png`,
     description: "A psychically awakened bandit who uses mental powers to terrorize survivors.",
     stats: {
       hd: 4,
@@ -170,7 +170,7 @@ export const creatures: Creature[] = [
     id: "rust-beetle",
     name: "Rust Beetle",
     type: "beast",
-    image: `${getBasePath()}/images/creatures/rust-monster-square.webp`,
+    image: `${getBasePath()}/images/creatures/rust.png`,
     description: "A large insectoid that secretes corrosive chemicals that rapidly decay metal.",
     stats: {
       hd: 4,
@@ -196,10 +196,10 @@ export const creatures: Creature[] = [
   },
   {
     id: "armon-zhul",
-    name: "Armon Zhul",
+    name: "Armon Zhul - WIZARD",
     type: "npc",
     image: `${getBasePath()}/images/creatures/armon-zhul.png`,
-    description: "Wizard! A radioactive-mutated humanoid using found tech to dominate his surroundings",
+    description: "A radioactive-mutated humanoid using found tech to dominate his surroundings",
     stats: {
       hd: 6,
       hp: 30,
@@ -270,10 +270,10 @@ export const creatures: Creature[] = [
   },
   {
     id: "titan-lord",
-    name: "Titan Lord",
+    name: "Titan Lord - WIZARD",
     type: "npc",
     image: `${getBasePath()}/images/creatures/titan-lord.png`,
-    description: "Wizard! Discovered the Titan Graveyard and terrorizes the wasteland flying in his titan skull",
+    description: "Discovered the Titan Graveyard and terrorizes the wasteland flying in his titan skull",
     stats: {
       hd: 8,
       hp: 41,
@@ -294,10 +294,10 @@ export const creatures: Creature[] = [
   },
   {
     id: "chaos-lich",
-    name: "Chaos Lich",
+    name: "Chaos Lich - WIZARD",
     type: "npc",
     image: `${getBasePath()}/images/creatures/lich-dude.png`,
-    description: "Wizard! Created his phylactery by tapping into the chaos realm and using the ichor of chaos krill, beings that feed on untapped chaotic energy",
+    description: "Created his phylactery by tapping into the chaos realm and using the ichor of chaos krill, beings that feed on untapped chaotic energy",
     stats: {
       hd: 10,
       hp: 31,

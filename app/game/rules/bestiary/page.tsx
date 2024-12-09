@@ -36,6 +36,7 @@ export default function Bestiary() {
           {/* Filter */}
           <select
             className="p-2 rounded bg-neutral-800"
+            style={{borderRight: "transparent solid .875rem"}}
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
           >

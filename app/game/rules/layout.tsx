@@ -21,9 +21,16 @@ export default function RulesLayout({
           <div className="w-screen overflow-x-auto no-scrollbar">
             <div className="flex h-16 items-center space-x-4 px-2">
               {/* <Link href="/game/rules/overview" className="text-white hover:text-gray-300 whitespace-nowrap">Overview</Link> */}
-              <Link href="/create" className="text-white hover:text-gray-300 whitespace-nowrap">Character Creation</Link>
-              <Link href="/game/rules/combat" className="text-white hover:text-gray-300 whitespace-nowrap">Combat</Link>
-              <Link href="/game/rules/bestiary" className="text-white hover:text-gray-300 whitespace-nowrap">Bestiary</Link>
+              <Link href="/game/rules/" 
+             
+              className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
+>Rules</Link>
+              <Link href="/create/" 
+                            className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/combat/' ? 'bg-neutral-700 rounded-lg ' : 'hover:bg-neutral-800'}`}
+>Create Character</Link>
+              <Link href="/game/rules/bestiary"               
+              className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/bestiary/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
+              >Bestiary</Link>
             </div>
           </div>
         </nav>
@@ -31,7 +38,7 @@ export default function RulesLayout({
         {/* Content Area with Side Navigation */}
         <div className="flex flex-row min-h-0">
           {/* Side Navigation */}
-          <nav className="bg-neutral-900 p-4 w-64 hidden md:block">
+    {/*       <nav className="bg-neutral-900 p-4 w-64 hidden md:block">
             <ul className="space-y-2">
               <li>
                 <Link 
@@ -50,7 +57,7 @@ export default function RulesLayout({
                 </Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
 
           {/* Main Content */}
           <main className="flex-1 p-4 overflow-auto">
