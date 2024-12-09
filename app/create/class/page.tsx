@@ -62,7 +62,7 @@ export default function ChooseClass() {
           priority
         />
         
-        <h1 className="text-2xl font-bold">Choose Your Class</h1>
+        <h1 className="text-3xl font-dirt text-white uppercase text-center">Choose Your Class</h1>
         
         {characterStats && (
           <div className="text-sm opacity-75 bg-neutral-800 p-4 rounded-lg">

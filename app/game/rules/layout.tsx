@@ -20,7 +20,7 @@ export default function RulesLayout({
         <nav className="bg-black/50 backdrop-blur-sm border-b border-white/10">
           <div className="w-screen overflow-x-auto no-scrollbar">
             <div className="flex h-16 items-center space-x-4 px-2">
-              <Link href="/game/rules" className="text-white hover:text-gray-300 whitespace-nowrap">Overview</Link>
+              {/* <Link href="/game/rules/overview" className="text-white hover:text-gray-300 whitespace-nowrap">Overview</Link> */}
               <Link href="/create" className="text-white hover:text-gray-300 whitespace-nowrap">Character Creation</Link>
               <Link href="/game/rules/combat" className="text-white hover:text-gray-300 whitespace-nowrap">Combat</Link>
               <Link href="/game/rules/bestiary" className="text-white hover:text-gray-300 whitespace-nowrap">Bestiary</Link>

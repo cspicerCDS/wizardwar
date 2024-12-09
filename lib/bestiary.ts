@@ -9,7 +9,8 @@ export const creatures: Creature[] = [
     image: `${getBasePath()}/images/creatures/mutant-rat.jpg`,
     description: "A massive, radiation-warped rodent with glowing eyes.",
     stats: {
-      hp: 12,
+      hd: 1,
+      hp: 6,
       armor: "light",
       str: 12,
       dex: 15,
@@ -19,7 +20,8 @@ export const creatures: Creature[] = [
       cha: 6
     },
     abilities: [
-      "Bite: +4 to hit, 1d6+2 damage",
+      "Bite: +1 to hit, 1d4 damage",
+      "Radiation Sickness: Constitution DC 12, 1d6 poison damage at start of each turn",
       "Radiation Resistance",
       "Darkvision 60ft"
     ],
@@ -32,9 +34,11 @@ export const creatures: Creature[] = [
     id: "wasteland-stalker",
     name: "Wasteland Stalker",
     type: "humanoid",
+    image: `${getBasePath()}/images/creatures/scav.webp`,
     description: "A cunning survivor equipped with makeshift armor and scavenged weapons.",
     stats: {
-      hp: 24,
+      hd: 2,
+      hp: 12,
       armor: "medium",
       str: 14,
       dex: 16,
@@ -44,8 +48,7 @@ export const creatures: Creature[] = [
       cha: 10
     },
     abilities: [
-      "Multiattack: Two attacks with scrap blade",
-      "Scrap Blade: +5 to hit, 1d6+3 slashing damage",
+      "Scrap Blade: 1d8+1 slashing damage",
       "Scavenger's Eye: Advantage on Investigation checks to find valuable items"
     ],
     loot: [
@@ -58,9 +61,11 @@ export const creatures: Creature[] = [
     id: "toxic-bloom",
     name: "Toxic Bloom",
     type: "monster",
+    image: `${getBasePath()}/images/creatures/bloom.jpg`,
     description: "A massive, mutated flower that releases poisonous spores.",
     stats: {
-      hp: 45,
+      hd: 3,
+      hp: 15,
       armor: "light",
       str: 10,
       dex: 8,
@@ -84,9 +89,11 @@ export const creatures: Creature[] = [
     id: "scrap-golem",
     name: "Scrap Golem",
     type: "monster",
+    image: `${getBasePath()}/images/creatures/scrap.png`,
     description: "An autonomous construct built from salvaged machinery and ancient tech.",
     stats: {
-      hp: 76,
+      hd: 4,
+      hp: 18,
       armor: "medium",
       str: 18,
       dex: 8,
@@ -96,7 +103,7 @@ export const creatures: Creature[] = [
       cha: 5
     },
     abilities: [
-      "Slam: +6 to hit, 2d8+4 bludgeoning damage",
+      "Slam: +3 to hit, 2d6+3 bludgeoning damage",
       "Electromagnetic Pulse: Once per day, disables electronic devices in 20ft radius",
       "Damage Resistance: Half damage from non-energy weapons"
     ],
@@ -110,9 +117,11 @@ export const creatures: Creature[] = [
     id: "psi-raider",
     name: "Psi-Raider",
     type: "humanoid",
+    image: `${getBasePath()}/images/creatures/psi-raider.jpg`,
     description: "A psychically awakened bandit who uses mental powers to terrorize survivors.",
     stats: {
-      hp: 32,
+      hd: 4,
+      hp: 18,
       armor: "medium",
       str: 11,
       dex: 14,
@@ -133,13 +142,39 @@ export const creatures: Creature[] = [
     ]
   },
   {
+    id: "rad-zombie",
+    name: "Rad-Zombie",
+    type: "humanoid",
+    image: `${getBasePath()}/images/creatures/rad-zombie.jpg`,
+    description: "A radioactive-mutated humanoid with a craving for flesh.",
+    stats: {
+      hd: 1,
+      hp: 6,
+      armor: "none",
+      str: 11,
+      dex: 9,
+      con: 12,
+      int: 3,
+      wis: 6,
+      cha: 5
+    },
+    abilities: [
+      "Radiation Resistance",
+      "Radiation Sickness: Constitution DC 12, 1d6 poison damage at start of each turn"
+    ],
+    loot: [
+      "None"
+    ]
+  },
+  {
     id: "rust-beetle",
     name: "Rust Beetle",
     type: "beast",
-    image: `${getBasePath()}/images/creatures/rust-monster.webp`,
+    image: `${getBasePath()}/images/creatures/rust-monster-square.webp`,
     description: "A large insectoid that secretes corrosive chemicals that rapidly decay metal.",
     stats: {
-      hp: 28,
+      hd: 4,
+      hp: 18,
       armor: "light",
       str: 14,
       dex: 15,
@@ -158,5 +193,127 @@ export const creatures: Creature[] = [
       "Metallic Carapace",
       "Sensor Antennae"
     ]
-  }
+  },
+  {
+    id: "armon-zhul",
+    name: "Armon Zhul",
+    type: "npc",
+    image: `${getBasePath()}/images/creatures/armon-zhul.png`,
+    description: "Wizard! A radioactive-mutated humanoid using found tech to dominate his surroundings",
+    stats: {
+      hd: 6,
+      hp: 30,
+      armor: "light",
+      str: 14,
+      dex: 11,
+      con: 12,
+      int: 16,
+      wis: 12,
+      cha: 9
+    },
+    abilities: [
+      "Radiation Resistance",
+      "Radiation Sickness: Constitution DC 12, 1d6 poison damage at start of each turn"
+    ],
+    loot: [
+      "tbd"
+    ]
+  },
+  {
+    id: "zhul-raider",
+    name: "Zhul Raider",
+    type: "humanoid",
+    image: `${getBasePath()}/images/creatures/zhul-raider.png`,
+    description: "Masked raiders serving Armon Zhul",
+    stats: {
+      hd: 1,
+      hp: 6,
+      armor: "light",
+      str: 12,
+      dex: 11,
+      con: 12,
+      int: 9,
+      wis: 12,
+      cha: 9
+    },
+    abilities: [
+      "Radiation Resistance",
+    ],
+    loot: [
+      "tbd"
+    ]
+  },
+  {
+    id: "zhul-elite",
+    name: "Zhul Elite",
+    type: "humanoid",
+    image: `${getBasePath()}/images/creatures/zhul-elites.png`,
+    description: "Rad-rod infused raiders serving Armon Zhul",
+    stats: {
+      hd: 3,
+      hp: 17,
+      armor: "light",
+      str: 14,
+      dex: 11,
+      con: 14,
+      int: 11,
+      wis: 12,
+      cha: 10
+    },
+    abilities: [
+      "Radiation Resistance",
+      "Radiation Sickness: Constitution DC 12, 1d6 poison damage at start of each turn"
+    ],
+    loot: [
+      "tbd"
+    ]
+  },
+  {
+    id: "titan-lord",
+    name: "Titan Lord",
+    type: "npc",
+    image: `${getBasePath()}/images/creatures/titan-lord.png`,
+    description: "Wizard! Discovered the Titan Graveyard and terrorizes the wasteland flying in his titan skull",
+    stats: {
+      hd: 8,
+      hp: 41,
+      armor: "medium",
+      str: 18,
+      dex: 12,
+      con: 18,
+      int: 14,
+      wis: 14,
+      cha: 16
+    },
+    abilities: [
+      "Various titan artifacts"
+    ],
+    loot: [
+      "tbd"
+    ]
+  },
+  {
+    id: "chaos-lich",
+    name: "Chaos Lich",
+    type: "npc",
+    image: `${getBasePath()}/images/creatures/lich-dude.png`,
+    description: "Wizard! Created his phylactery by tapping into the chaos realm and using the ichor of chaos krill, beings that feed on untapped chaotic energy",
+    stats: {
+      hd: 10,
+      hp: 31,
+      armor: "none",
+      str: 11,
+      dex: 14,
+      con: 16,
+      int: 18,
+      wis: 17,
+      cha: 16
+    },
+    abilities: [
+      "Spellcasting: Can cast any spell that he has prepared"
+    ],
+    loot: [
+      "tbd"
+    ]
+  },
 ]; 

@@ -24,7 +24,7 @@ export const mutations: Mutation[] = [
   {
     id: 3,
     name: "Chameleon Skin",
-    benefit: "Advantage on stealth checks when not moving",
+    benefit: "Can hide in plain sight 1-4 on 1d6",
     category: "defensive"
   },
   {
@@ -58,7 +58,7 @@ export const mutations: Mutation[] = [
   {
     id: 8,
     name: "Armored Hide",
-    benefit: "+2 natural armor bonus",
+    benefit: "d4 natural armor bonus",
     drawback: "Cannot wear conventional armor",
     category: "defensive"
   },
@@ -100,7 +100,7 @@ export const mutations: Mutation[] = [
   {
     id: 14,
     name: "Venomous Fangs",
-    benefit: "Natural bite attack dealing 1d4 + 2d6 poison damage",
+    benefit: "Natural bite attack dealing 1d4 + 1d6 poison damage",
     drawback: "Cannot speak clearly (-2 to Charisma checks involving speech)",
     category: "offensive"
   },
@@ -128,7 +128,7 @@ export const mutations: Mutation[] = [
   {
     id: 18,
     name: "Gravity Control",
-    benefit: "Can levitate self for up to 1 minute per day",
+    benefit: "Can levitate self for up to 5 minutes per day",
     drawback: "Double damage from falling",
     category: "physical"
   },
@@ -142,7 +142,7 @@ export const mutations: Mutation[] = [
   {
     id: 20,
     name: "Crystalline Growth",
-    benefit: "Natural armor increases by 1 each level",
+    benefit: "Natural armor d4",
     drawback: "Thunder damage causes stunned condition on failed save",
     category: "defensive"
   },
@@ -177,14 +177,14 @@ export const mutations: Mutation[] = [
   {
     id: 25,
     name: "Phase Shifting",
-    benefit: "Can move through solid objects once per long rest",
+    benefit: "Can move through solid objects once per day",
     drawback: "Take 2d6 force damage if ending turn inside an object",
     category: "physical"
   },
   {
     id: 26,
     name: "Temporal Echo",
-    benefit: "Can see 6 seconds into the future once per short rest",
+    benefit: "Can see 6 seconds into the future twice per day",
     drawback: "Disadvantage on initiative rolls",
     category: "sensory"
   },
@@ -226,7 +226,7 @@ export const mutations: Mutation[] = [
   {
     id: 32,
     name: "Psychic Resonance",
-    benefit: "Can cast Detect Thoughts once per long rest",
+    benefit: "Can Detect Thoughts once per long rest",
     drawback: "Others can sense your surface thoughts within 10 feet",
     category: "mental"
   },
@@ -240,14 +240,14 @@ export const mutations: Mutation[] = [
   {
     id: 34,
     name: "Time Dilation",
-    benefit: "Can take an additional action once per long rest",
+    benefit: "Can take an additional action once per day",
     drawback: "Age 1d4 years when using this ability",
     category: "offensive"
   },
   {
     id: 35,
     name: "Living Metal",
-    benefit: "Resistance to non-magical physical damage",
+    benefit: "d6 armor to non-magical physical damage",
     drawback: "Cannot swim, sink like metal",
     category: "defensive"
   },
@@ -269,7 +269,7 @@ export const mutations: Mutation[] = [
     id: 38,
     name: "Reactive Healing",
     benefit: "Heal 1d8 HP when dropping below half health",
-    drawback: "Maximum HP reduced by 2 each time this triggers",
+    drawback: "Maximum HP reduced by 1 each time this triggers",
     category: "defensive"
   },
   {
@@ -303,14 +303,14 @@ export const mutations: Mutation[] = [
   {
     id: 43,
     name: "Psionic Blast",
-    benefit: "15-foot cone psychic attack (3d6 damage)",
+    benefit: "15-foot cone psychic attack (3d6 damage) once per day",
     drawback: "Cannot use psychic abilities for 1d4 rounds after use",
     category: "offensive"
   },
   {
     id: 44,
     name: "Adaptive Camouflage",
-    benefit: "Advantage on Stealth checks in natural environments",
+    benefit: "Hide 1-4 on d6 in natural environments",
     drawback: "Disadvantage on social checks with non-mutants",
     category: "physical"
   },
@@ -318,7 +318,7 @@ export const mutations: Mutation[] = [
     id: 45,
     name: "Energy Conversion",
     benefit: "Convert absorbed energy damage to healing",
-    drawback: "Vulnerable to the damage type for 1 hour after conversion",
+    drawback: "Vulnerable to the damage type for 1 day after conversion",
     category: "defensive"
   },
   {
@@ -332,7 +332,7 @@ export const mutations: Mutation[] = [
     id: 47,
     name: "Viral Enhancement",
     benefit: "+2 to all physical ability checks",
-    drawback: "Cannot be healed by normal means",
+    drawback: "-2 (min 1) when healed by normal means",
     category: "physical"
   },
   {
@@ -359,14 +359,14 @@ export const mutations: Mutation[] = [
   {
     id: 51,
     name: "Chronometric Core",
-    benefit: "Add proficiency bonus to initiative",
-    drawback: "Age 1 year for every death save failed",
+    benefit: "+4 bonus to initiative",
+    drawback: "Age 1 year for every DEX save failed",
     category: "physical"
   },
   {
     id: 52,
     name: "Bionic Eyes",
-    benefit: "Advantage on Perception checks involving sight, darkvision 60ft",
+    benefit: "Double vision distance, darkvision 60ft",
     drawback: "Disadvantage on saves against bright light and flash effects",
     category: "sensory"
   },
@@ -380,14 +380,14 @@ export const mutations: Mutation[] = [
   {
     id: 54,
     name: "Psychic Vampire",
-    benefit: "Heal self for half the psychic damage dealt to others",
+    benefit: "d6 psychic damage. Heal self for half the psychic damage dealt to others.",
     drawback: "Take double damage from radiant sources",
     category: "offensive"
   },
   {
     id: 55,
     name: "Quantum Duplication",
-    benefit: "Create one duplicate of self for 1 round per long rest",
+    benefit: "Create one duplicate of self for 1-3 turns per long rest",
     drawback: "Split current HP with duplicate",
     category: "offensive"
   },
@@ -443,8 +443,8 @@ export const mutations: Mutation[] = [
   {
     id: 63,
     name: "Energy Siphon",
-    benefit: "Absorb energy damage to power abilities",
-    drawback: "Start each day with one level of exhaustion",
+    benefit: "Absorb energy damage to convert to HP",
+    drawback: "-d6 HP when following day after using this ability",
     category: "defensive"
   },
   {
@@ -471,8 +471,8 @@ export const mutations: Mutation[] = [
   {
     id: 67,
     name: "Temporal Acceleration",
-    benefit: "Double movement speed for one round per short rest",
-    drawback: "Gain one level of exhaustion when used",
+    benefit: "Double movement speed for one turn per day",
+    drawback: "Disadvantage on all checks and saves for 3+d3 turns after use",
     category: "physical"
   },
   {
@@ -570,7 +570,7 @@ export const mutations: Mutation[] = [
     id: 81,
     name: "Temporal Rewind",
     benefit: "Can rewind own actions by 6 seconds once per long rest",
-    drawback: "Take 2d6 psychic damage when rewinding",
+    drawback: "Take 1d6 psychic damage when rewinding",
     category: "defensive"
   },
   {
@@ -598,7 +598,7 @@ export const mutations: Mutation[] = [
     id: 85,
     name: "Quantum Prediction",
     benefit: "Advantage on first attack each combat",
-    drawback: "Disadvantage on subsequent attacks that round",
+    drawback: "Disadvantage on subsequent attack",
     category: "offensive"
   },
   {
@@ -625,8 +625,8 @@ export const mutations: Mutation[] = [
   {
     id: 89,
     name: "Molecular Phasing",
-    benefit: "Ignore physical damage once per short rest",
-    drawback: "Cannot deal physical damage for 1 round after use",
+    benefit: "Ignore physical damage once per day",
+    drawback: "Cannot deal physical damage for 1 turn after use",
     category: "defensive"
   },
   {
@@ -668,7 +668,7 @@ export const mutations: Mutation[] = [
     id: 95,
     name: "Void Reconstruction",
     benefit: "Reform body if killed (once per week)",
-    drawback: "Lose one random memory permanently",
+    drawback: "Lose d3 points of random ability score",
     category: "defensive"
   },
   {
@@ -681,7 +681,7 @@ export const mutations: Mutation[] = [
   {
     id: 97,
     name: "Quantum Shell",
-    benefit: "Exist in multiple probabilities (+2 AC)",
+    benefit: "Exist in multiple probabilities, extra action once per turn",
     drawback: "Take actions in all probabilities or take 2d6 force damage",
     category: "defensive"
   },
@@ -695,7 +695,7 @@ export const mutations: Mutation[] = [
   {
     id: 99,
     name: "Time Dilation Field",
-    benefit: "Slow time in 15ft radius (+2 to allies' AC)",
+    benefit: "Slow time in 15ft radius (Advantage to actions)",
     drawback: "Allies in field can only take one action per turn",
     category: "defensive"
   },

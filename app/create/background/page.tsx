@@ -52,7 +52,7 @@ export default function ChooseBackground() {
           priority
         />
         
-        <h1 className="text-2xl font-bold">Choose Your Background</h1>
+        <h1 className="text-3xl font-dirt text-white uppercase text-center">Choose Your Background</h1>
 
         <div className="w-full flex-1 min-h-0 overflow-y-auto">
           <ToggleGroup 

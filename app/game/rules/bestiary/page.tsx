@@ -21,7 +21,7 @@ export default function Bestiary() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen bg-black text-white">
       <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-4xl">
-        <h1 className="text-2xl font-bold">Bestiary</h1>
+        <h1 className="text-3xl font-dirt text-white uppercase text-center">Bestiary</h1>
 
         <div className="w-full flex flex-col sm:flex-row gap-4">
           {/* Search */}
@@ -55,23 +55,24 @@ export default function Bestiary() {
               className="bg-neutral-900 p-4 rounded-lg"
               whileHover={{ scale: 1.02 }}
             >
+              
+              <h2 className="text-xl font-bold">{creature.name}</h2>
+              <p className="text-sm text-neutral-400 capitalize">{creature.type}</p>
+              <p className="mt-2 mb-4">{creature.description}</p>
               {creature.image && (
-                <div className="relative w-full h-48 mb-4">
+                <div className="relative w-full mb-4">
                   <Image
                     src={creature.image}
                     alt={creature.name}
-                    fill
-                    className="object-cover rounded-lg"
+                    width="500"
+                    height="500"
+                    className="cover grayscale"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               )}
-              <h2 className="text-xl font-bold">{creature.name}</h2>
-              <p className="text-sm text-neutral-400 capitalize">{creature.type}</p>
-              <p className="mt-2">{creature.description}</p>
-              
               <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-                <div>HP: {creature.stats.hp}</div>
+                <div>HP: {creature.stats.hp} (HD: {creature.stats.hd})</div>
                 <div>ARMOR: {creature.stats.armor === "none" ? "None" : 
                   creature.stats.armor === "light" ? "-d2" :
                   creature.stats.armor === "medium" ? "-d4" :

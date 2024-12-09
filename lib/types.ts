@@ -29,6 +29,7 @@ export interface Creature {
   image?: string;
   description: string;
   stats: {
+    hd: number;
     hp: number;
     armor: "none" | "light" | "medium" | "heavy";
     str: number;

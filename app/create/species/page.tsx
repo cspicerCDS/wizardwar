@@ -256,7 +256,7 @@ export default function ChooseSpecies() {
           priority
         />
         
-        <h1 className="text-2xl font-bold">Choose Your Species</h1>
+        <h1 className="text-3xl font-dirt text-white uppercase text-center">Choose Your Species</h1>
 
         {characterStats && (
           <div className="text-sm opacity-75 bg-neutral-800 p-4 rounded-lg">
@@ -267,7 +267,8 @@ export default function ChooseSpecies() {
               CON {characterStats.constitution} ({formatModifier(getStatModifier(characterStats.constitution))}), 
               INT {characterStats.intelligence} ({formatModifier(getStatModifier(characterStats.intelligence))}), 
               WIS {characterStats.wisdom} ({formatModifier(getStatModifier(characterStats.wisdom))}), 
-              CHA {characterStats.charisma} ({formatModifier(getStatModifier(characterStats.charisma))})
+              CHA {characterStats.charisma} ({formatModifier(getStatModifier(characterStats.charisma))}),
+              Hit Points: {localStorage.getItem('characterHP') || '0'}
             </p>
           </div>
         )}

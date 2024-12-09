@@ -53,7 +53,7 @@ export default function Home() {
         initial={{ opacity: 0 }} animate={{ opacity: 1,transition: { duration: 1,delay: 1 } }}
         /> */}
         <div className="flex flex-col gap-4">
-          <Link href="/game">
+          <Link href="/game/rules">
             <motion.button 
               whileTap={{ scale: 0.9 }}
               className="border border-white p-4 rounded-lg w-48 text-center bg-black/[.5] font-bold text-white">
