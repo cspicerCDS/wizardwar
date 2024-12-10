@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Rubik_Dirt } from "next/font/google";
 import "./globals.css";
+import { getBasePath } from "@/lib/utils";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -18,6 +19,14 @@ const rubikDirt = Rubik_Dirt({
 export const metadata: Metadata = {
   title: "Wizard War",
   description: "Diabolical Despots Wage War On All",
+  icons: {
+    icon: [
+      {
+        url: `${getBasePath()}/favicon.ico`,
+        sizes: 'any',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -299,7 +299,7 @@ export const creatures: Creature[] = [
     image: `${getBasePath()}/images/creatures/lich-dude.png`,
     description: "Created his phylactery by tapping into the chaos realm and using the ichor of chaos krill, beings that feed on untapped chaotic energy",
     stats: {
-      hd: 10,
+      hd: 7,
       hp: 31,
       armor: "none",
       str: 11,

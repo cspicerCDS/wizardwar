@@ -1,7 +1,12 @@
 "use client"
 
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { Menu, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { getBasePath } from "@/lib/utils"
@@ -17,13 +22,43 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="left" className="bg-black text-white">
               <SheetTitle className="hidden">Rules</SheetTitle>
+              <SheetDescription className="sr-only">
+                Navigation menu for rules and character creation
+              </SheetDescription>
               <div className="grid gap-4">
-                <Link
+              <Collapsible>
+  <CollapsibleTrigger className="flex items-center gap-2 group" aria-controls="rules-content" aria-expanded="false">
+    Rules
+    <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
+  </CollapsibleTrigger>
+  <CollapsibleContent id="rules-content" className="flex flex-col gap-4 ml-4">
+  <Link
                   href="/game/rules"
+                  className="text-sm font-medium hover:underline mt-2"
+                >
+                  Introduction
+                </Link>
+                <Link
+                  href="/game/rules/attributes"
                   className="text-sm font-medium hover:underline"
                 >
-                  Rules
+                  Attributes
                 </Link>
+                <Link
+                  href="/game/rules/species"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Species
+                </Link>
+                <Link
+                  href="/game/rules/classes"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Classes
+                </Link>
+  </CollapsibleContent>
+</Collapsible>
+              
                 <Link
                   href="/create"
                   className="text-sm font-medium hover:underline"

@@ -1,13 +1,17 @@
+'use client'
+import { motion } from 'framer-motion'
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
-const page = () => {
+const Page = () => {
+  const router = useRouter();
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 sm:p-20  bg-black text-white">
     <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-md">
       
       <h1 className="text-3xl font-dirt text-white uppercase text-center">Species</h1>
       <div className="text-left text-white">
-      <div className="species mb-4">
+      <div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
       <h3 id="pure-strain-human" className="text-white font-bold text-xl" >Pure-Strain Human</h3>
 <p><strong>Benefits:</strong></p>
 <ul className="list-disc list-inside">
@@ -16,7 +20,7 @@ const page = () => {
 <li>Most adaptable species</li>
 </ul>
 </div>
-<div className="species mb-4">
+<div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
 <h3 id="hybrid" className="text-white font-bold text-xl">Hybrid</h3>
 <p><strong>Animal Hybrid Benefits:</strong></p>
 <ul className="list-disc list-inside">
@@ -31,7 +35,7 @@ const page = () => {
 <li>Plant affinity</li>
 </ul>
 </div>
-<div className="species mb-4">
+<div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
 <h3 id="psychant" className="text-white font-bold text-xl">Psychant</h3>
 <p><strong>Benefits:</strong></p>
 <ul className="list-disc list-inside">
@@ -44,7 +48,7 @@ const page = () => {
 <li>Mental abilities often come with drawbacks specific to the power</li>
 </ul>
 </div>
-<div className="species mb-4">
+<div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
 <h3 id="mutant" className="text-white font-bold text-xl">Mutant</h3>
 <p><strong>Benefits:</strong></p>
 <ul className="list-disc list-inside">
@@ -58,7 +62,7 @@ const page = () => {
 <li>Unpredictable abilities (random)</li>
 </ul>
 </div>
-<div className="species mb-4   ">
+<div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
 <h3 id="zombo" className="text-white font-bold text-xl">Zombo</h3>
 <p><strong>Benefits:</strong></p>
 <ul className="list-disc list-inside">
@@ -73,9 +77,27 @@ markdown.</li>
 </ul>
 </div>
 </div>
+<div className="flex gap-4 mt-8">      
+        <motion.button
+            whileTap={{ scale: 0.9 }}
+            className="text-white border border-white p-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={() => router.push('/game/rules/attributes/')}
+           
+          >
+             ← Attributes
+          </motion.button> 
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            className="text-white border border-white p-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            onClick={() => router.push('/game/rules/classes/')}
+           
+          >
+            Classes →
+          </motion.button>
+        </div>
     </main>
     </div>
   )
 }
 
-export default page
+export default Page
