@@ -2,6 +2,7 @@
 
 import "../../globals.css";
 import Header from "@/components/header";
+import ReturnToTop from "@/components/return-to-top";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -25,7 +26,7 @@ export default function RulesLayout({
              
               className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
 >Rules</Link>
-              <Link href="/create/" 
+              <Link href="/game/rules/create/" 
                             className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/combat/' ? 'bg-neutral-700 rounded-lg ' : 'hover:bg-neutral-800'}`}
 >Create Character</Link>
               <Link href="/game/rules/bestiary"               
@@ -65,6 +66,7 @@ export default function RulesLayout({
           </main>
         </div>
       </div>
+      <ReturnToTop />
     </>
   );
 } 

@@ -33,25 +33,25 @@ export default function Header() {
   </CollapsibleTrigger>
   <CollapsibleContent id="rules-content" className="flex flex-col gap-4 ml-4">
   <Link
-                  href="/game/rules"
+                  href="/game/rules/"
                   className="text-sm font-medium hover:underline mt-2"
                 >
                   Introduction
                 </Link>
                 <Link
-                  href="/game/rules/attributes"
+                  href="/game/rules/attributes/"
                   className="text-sm font-medium hover:underline"
                 >
                   Attributes
                 </Link>
                 <Link
-                  href="/game/rules/species"
+                  href="/game/rules/species/"
                   className="text-sm font-medium hover:underline"
                 >
                   Species
                 </Link>
                 <Link
-                  href="/game/rules/classes"
+                  href="/game/rules/classes/"
                   className="text-sm font-medium hover:underline"
                 >
                   Classes
@@ -60,13 +60,13 @@ export default function Header() {
 </Collapsible>
               
                 <Link
-                  href="/create"
+                  href="/game/rules/create/"
                   className="text-sm font-medium hover:underline"
                 >
                   Create Character
                 </Link>
                 <Link
-                  href="/game/rules/bestiary"
+                  href="/game/rules/bestiary/"
                   className="text-sm font-medium hover:underline"
                 >
                   Bestiary

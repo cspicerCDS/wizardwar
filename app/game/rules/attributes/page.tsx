@@ -1,11 +1,8 @@
 'use client'
-import { motion } from 'framer-motion'
 import React from 'react'
-import { useRouter } from 'next/navigation'
-
-const Page = () => {
-  const router = useRouter();
-  
+import NavigationButtons from "@/components/navigation-buttons";
+import PageHeader from "@/components/page-header";
+const Page = () => {  
   // Define the modifier groups
   const modifierGroups = [
     { range: '3', modifier: -3 },
@@ -18,10 +15,9 @@ const Page = () => {
   ];
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen p-8 pb-20 sm:p-20 bg-black text-white">
+    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center  bg-black text-white">
       <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-2xl">
-        <h1 className="text-3xl font-dirt uppercase text-center">Attributes & Modifiers</h1>
-        
+        <PageHeader title="Attributes & Modifiers" />
         {/* Modifier Table */}
         <div className="w-full overflow-x-auto">
           <table className="w-full border-collapse">
@@ -79,22 +75,12 @@ const Page = () => {
           </div>
         </div>
         <div className="flex gap-4 mt-8">      
-        <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="text-white border border-white p-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            onClick={() => router.push('/game/rules/')}
-           
-          >
-             ← Introduction
-          </motion.button> 
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="text-white border border-white p-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
-            onClick={() => router.push('/game/rules/species/')}
-           
-          >
-            Species  →
-          </motion.button>
+          <NavigationButtons 
+            backPath="/game/rules/" 
+            backLabel="Introduction"
+            forwardPath="/game/rules/species/"
+            forwardLabel="Species"
+            />
         </div>
       </main>
     </div>
