@@ -6,7 +6,7 @@ export const creatures: Creature[] = [
     id: "mutant-rat",
     name: "Mutant Rat",
     type: "beast",
-    image: `${getBasePath()}/images/creatures/rat.png`,
+    image: `${getBasePath()}/images/creatures/mutant-rat.png`,
     description: "A massive, radiation-warped rodent with glowing eyes.",
     stats: {
       hd: 1,
@@ -170,7 +170,7 @@ export const creatures: Creature[] = [
     id: "rust-beetle",
     name: "Rust Beetle",
     type: "beast",
-    image: `${getBasePath()}/images/creatures/rust.png`,
+    image: `${getBasePath()}/images/creatures/rustbeetle.png`,
     description: "A large insectoid that secretes corrosive chemicals that rapidly decay metal.",
     stats: {
       hd: 4,

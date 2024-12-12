@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion"
 import PageHeader from "@/components/page-header";
-import { getStatModifier } from "@/lib/utils";
+import { getStatModifier, ensureMinimumHP } from "@/lib/utils";
 import NavigationButtons from "@/components/navigation-buttons";
 
 interface Stats {
@@ -82,10 +82,9 @@ export default function CreateCharacter() {
 
   // Add this effect to handle direct access
   useEffect(() => {
-    // Check if we're accessing the page directly
     const savedData = localStorage.getItem('characterData');
-    if (!savedData && pathname !== '/create' && pathname !== '/create/') {
-      router.replace('/create');
+    if (!savedData && pathname !== '/game/rules/create' && pathname !== '/game/rules/create/') {
+      router.replace('/game/rules/create');
     }
   }, [pathname, router]);
 
@@ -170,23 +169,17 @@ export default function CreateCharacter() {
     };
 
     // Generate HP
-    const generateHP = (constitution: number): number => {
+    const generateHP = (constitution: number): { baseHP: number, totalHP: number } => {
       const baseHP = Math.floor(Math.random() * 8) + 1; // 1d8
       const conMod = getStatModifier(constitution);
-      let totalHP = Math.max(1, baseHP + conMod); // Ensure minimum of 1
+      const totalHP = ensureMinimumHP(baseHP + conMod); // Ensures minimum of 1
       
-      // Add zombo bonus if applicable
-      const zomboBonuses = localStorage.getItem('zomboBonuses');
-      if (zomboBonuses) {
-        const { hpBonus } = JSON.parse(zomboBonuses);
-        totalHP += hpBonus;
-      }
-      
-      return totalHP;
+      return { baseHP, totalHP };
     };
 
-    const hitPoints = generateHP(newStats.constitution);
-    localStorage.setItem('characterHP', hitPoints.toString());
+    const { baseHP, totalHP } = generateHP(newStats.constitution);
+    localStorage.setItem('baseHP', baseHP.toString());  // Store original HP roll
+    localStorage.setItem('characterHP', totalHP.toString()); // Store current HP with modifiers
 
     console.log('Generated new stats:', newStats);
 
@@ -272,8 +265,8 @@ export default function CreateCharacter() {
               ))}
             </div>
             <NavigationButtons 
-            forwardPath="/game/rules/create/species/"
-            forwardLabel="Choose Species"
+              forwardPath="/game/rules/create/species/"
+              forwardLabel="Choose Species"
             />
           </>
         )}

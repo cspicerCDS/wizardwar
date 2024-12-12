@@ -61,10 +61,10 @@ export default function Home() {
             </motion.button>
           </Link>
 
-          <Link href="/create">
+          <Link href="/game/rules/create/">
             <motion.button 
               whileTap={{ scale: 0.9 }}
-              className="border border-white p-4 rounded-lg w-48 text-center  bg-black/[.5] font-bold text-white">
+              className="border border-white p-4 rounded-lg w-48 text-center bg-black/[.5] font-bold text-white">
               Create Character
             </motion.button>
           </Link>

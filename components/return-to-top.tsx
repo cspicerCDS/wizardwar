@@ -1,8 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-const returnToTop = () => {
+
+const ReturnToTop = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Add scroll listener
@@ -49,4 +49,4 @@ const returnToTop = () => {
   )
 }
 
-export default returnToTop
+export default ReturnToTop

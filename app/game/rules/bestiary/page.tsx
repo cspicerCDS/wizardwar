@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getStatModifier, formatModifier } from "@/lib/utils";
 import { type Creature } from "@/lib/types";
 import { creatures } from "@/lib/bestiary";
+import PageHeader from "@/components/page-header";
 
 export default function Bestiary() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,7 +22,7 @@ export default function Bestiary() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen bg-black text-white">
       <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-4xl">
-        <h1 className="text-3xl font-dirt text-white uppercase text-center">Bestiary</h1>
+        <PageHeader title="Bestiary" />
 
         <div className="w-full flex flex-col sm:flex-row gap-4">
           {/* Search */}

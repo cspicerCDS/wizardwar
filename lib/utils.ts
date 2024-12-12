@@ -31,3 +31,7 @@ export function getBasePath(): string {
   return process.env.NODE_ENV === 'production' ? '/ww' : '';
 }
 
+export const ensureMinimumHP = (hp: number): number => {
+  return Math.max(1, hp);
+};
+

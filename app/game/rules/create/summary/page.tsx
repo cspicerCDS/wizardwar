@@ -1,7 +1,6 @@
 "use client";
 
 import { getStatModifier, formatModifier } from "@/lib/utils";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Mutation } from "@/lib/mutations";
 import type { MentalAbility } from "@/lib/mental-abilities";
@@ -17,8 +16,7 @@ interface Stats {
   charisma: number;
 }
 
-export default function Summary() {
-  const router = useRouter();  
+export default function Summary() { 
   const [species, setSpecies] = useState<string>('');
   const [hybridType, setHybridType] = useState<string>('');
   const [characterClass, setCharacterClass] = useState<string>('');
@@ -154,9 +152,9 @@ export default function Summary() {
 
         <NavigationButtons
           backPath="/game/rules/create/background/"
-          backLabel="background"
+          backLabel="Background"
           forwardPath="/game/rules/create/edit/"
-          forwardLabel="edit"
+          forwardLabel="Edit"
           isForwardDisabled={false}
         />
       </main>

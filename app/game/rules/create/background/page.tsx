@@ -75,7 +75,7 @@ export default function ChooseBackground() {
 
         <NavigationButtons
           backPath="/game/rules/create/class/"
-          backLabel="class"
+          backLabel="Class"
           forwardPath="/game/rules/create/summary/"
           forwardLabel="Summary"
           isForwardDisabled={!selectedBackground}

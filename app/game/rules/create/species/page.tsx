@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { getRandomMutation, type Mutation } from "@/lib/mutations";
 import { getStatModifier, formatModifier } from "@/lib/utils";
@@ -19,7 +18,6 @@ interface CharacterStats {
 }
 
 export default function ChooseSpecies() {
-  const router = useRouter();
   const [characterStats, setCharacterStats] = useState<CharacterStats | null>(null);
   const [selectedSpecies, setSelectedSpecies] = useState<string>("");
   const [showSubOptions, setShowSubOptions] = useState(false);
@@ -28,6 +26,7 @@ export default function ChooseSpecies() {
   const [availablePoints, setAvailablePoints] = useState<number>(0);
   const [initialStats, setInitialStats] = useState<CharacterStats | null>(null);
   const [selectedMentalAbility, setSelectedMentalAbility] = useState<MentalAbility | null>(null);
+  const [currentHP, setCurrentHP] = useState<number>(0);
 
   // Load initial state
   useEffect(() => {
@@ -62,80 +61,59 @@ export default function ChooseSpecies() {
     }
   }, []);
 
+  // Load HP
+  useEffect(() => {
+    const hp = localStorage.getItem('characterHP');
+    if (hp) {
+      setCurrentHP(parseInt(hp));
+    }
+  }, []);
+
   // Handle species selection
   const handleSpeciesSelect = (value: string) => {
     setSelectedSpecies(value);
     setShowSubOptions(value === 'hybrid' || value === 'mutant');
     
-    if (characterStats) {
-      const newStats = { ...characterStats };
+    // Reset stats to initial values when changing species
+    if (initialStats) {
+      const newStats = { ...initialStats };
       
-      // Remove zombo bonuses when changing species
-      const savedZomboBonuses = localStorage.getItem('zomboBonuses');
-      if (savedZomboBonuses) {
-        const zomboBonuses = JSON.parse(savedZomboBonuses);
-        newStats.constitution -= zomboBonuses.constitution;
-        localStorage.removeItem('zomboBonuses');
-        
-        // Recalculate HP without zombo bonus
-        const baseHP = parseInt(localStorage.getItem('characterHP') || '0');
-        localStorage.setItem('characterHP', (baseHP - 2).toString());
-      }
+      // Reset HP to base value plus initial CON modifier
+      const baseHP = parseInt(localStorage.getItem('baseHP') || '0');
+      const initialConMod = getStatModifier(initialStats.constitution);
+      const totalHP = Math.max(1, baseHP + initialConMod);
       
-      // Apply zombo bonuses if selecting zombo
+      console.log('Resetting HP:', {
+        baseHP,
+        initialCon: initialStats.constitution,
+        initialConMod,
+        totalHP
+      });
+      
+      // Reset HP in both localStorage and state
+      localStorage.setItem('characterHP', totalHP.toString());
+      setCurrentHP(totalHP);
+      
+      // Apply species-specific changes if needed
       if (value === 'zombo') {
         newStats.constitution += 2;
-        const zomboBonuses = { 
-          constitution: 2,
-          hpBonus: 2
-        };
-        localStorage.setItem('zomboBonuses', JSON.stringify(zomboBonuses));
-        
-        // Add zombo HP bonus
-        const baseHP = parseInt(localStorage.getItem('characterHP') || '0');
-        localStorage.setItem('characterHP', (baseHP + 2).toString());
+        const zomboConMod = getStatModifier(newStats.constitution);
+        const zomboHP = Math.max(1, baseHP + zomboConMod + 2);
+        localStorage.setItem('characterHP', zomboHP.toString());
+        setCurrentHP(zomboHP);
       }
       
       setCharacterStats(newStats);
+      setAvailablePoints(value === 'pure-strain' ? 3 : 0);
+      
       localStorage.setItem('characterData', JSON.stringify({
         originalStats: initialStats,
         currentStats: newStats,
-        hasIncreasedStats: availablePoints === 0
+        hasIncreasedStats: false
       }));
+      
+      localStorage.setItem('characterSpecies', value);
     }
-    
-    // Reset hybrid-specific state
-    if (value !== 'hybrid') {
-      setHybridType('');
-      localStorage.removeItem('characterHybridType');
-    }
-    
-    // Set available points when selecting pure-strain
-    if (value === 'pure-strain') {
-      const savedData = localStorage.getItem('characterData');
-      if (savedData) {
-        const data = JSON.parse(savedData);
-        setAvailablePoints(3);
-        localStorage.setItem('characterData', JSON.stringify({
-          ...data,
-          hasIncreasedStats: false
-        }));
-      }
-    } else {
-      setAvailablePoints(0);
-    }
-    
-    // Select a random mental ability for psychant
-    if (value === 'psychant') {
-      const randomAbility = mentalAbilities[Math.floor(Math.random() * mentalAbilities.length)];
-      setSelectedMentalAbility(randomAbility);
-      localStorage.setItem('characterMentalAbility', JSON.stringify(randomAbility));
-    } else {
-      setSelectedMentalAbility(null);
-      localStorage.removeItem('characterMentalAbility');
-    }
-    
-    localStorage.setItem('characterSpecies', value);
   };
 
   // Handle hybrid type selection
@@ -244,6 +222,45 @@ export default function ChooseSpecies() {
     shouldShow: selectedSpecies === 'pure-strain' && !!characterStats && availablePoints > 0
   });
 
+  const increaseStat = (statName: keyof CharacterStats) => {
+    if (availablePoints > 0 && characterStats && initialStats && characterStats[statName] < 18) {
+      const newStats = { ...characterStats };
+      newStats[statName] += 1;
+      
+      // If increasing CON, update HP with new modifier
+      if (statName === 'constitution') {
+        const baseHP = parseInt(localStorage.getItem('baseHP') || '0');
+        const initialConMod = getStatModifier(initialStats.constitution);
+        const newConMod = getStatModifier(newStats.constitution);
+        
+        // Calculate new total HP: baseHP + new CON modifier
+        const newHP = baseHP + newConMod;
+        
+        console.log('HP Calculation:', {
+          baseHP,
+          initialCon: initialStats.constitution,
+          initialConMod,
+          newCon: newStats.constitution,
+          newConMod,
+          newHP
+        });
+        
+        localStorage.setItem('characterHP', newHP.toString());
+        setCurrentHP(newHP);
+      }
+      
+      setCharacterStats(newStats);
+      const newPoints = availablePoints - 1;
+      setAvailablePoints(newPoints);
+      
+      localStorage.setItem('characterData', JSON.stringify({
+        originalStats: initialStats,
+        currentStats: newStats,
+        hasIncreasedStats: newPoints === 0
+      }));
+    }
+  };
+
   return (
     <div className=" bg-black text-white">
       <main className="flex flex-col gap-8 row-start-2 items-center">
@@ -252,16 +269,18 @@ export default function ChooseSpecies() {
 
         {characterStats && (
           <div className="text-sm opacity-75 bg-neutral-800 p-4 rounded-lg">
-            <h2 className="font-bold text-xl">Current Stats:</h2> 
-            <p className="text-left text-xs">
-              STR {characterStats.strength} ({formatModifier(getStatModifier(characterStats.strength))}), 
-              DEX {characterStats.dexterity} ({formatModifier(getStatModifier(characterStats.dexterity))}), 
-              CON {characterStats.constitution} ({formatModifier(getStatModifier(characterStats.constitution))}), 
-              INT {characterStats.intelligence} ({formatModifier(getStatModifier(characterStats.intelligence))}), 
-              WIS {characterStats.wisdom} ({formatModifier(getStatModifier(characterStats.wisdom))}), 
-              CHA {characterStats.charisma} ({formatModifier(getStatModifier(characterStats.charisma))}),
-              Hit Points: {localStorage.getItem('characterHP') || '0'}
-            </p>
+            <h2 className="font-bold text-xl mb-2">Current Stats:</h2> 
+            <div className="space-y-2">
+              <p className="text-left text-xs">
+                STR {characterStats.strength} ({formatModifier(getStatModifier(characterStats.strength))}), 
+                DEX {characterStats.dexterity} ({formatModifier(getStatModifier(characterStats.dexterity))}), 
+                CON {characterStats.constitution} ({formatModifier(getStatModifier(characterStats.constitution))}), 
+                INT {characterStats.intelligence} ({formatModifier(getStatModifier(characterStats.intelligence))}), 
+                WIS {characterStats.wisdom} ({formatModifier(getStatModifier(characterStats.wisdom))}), 
+                CHA {characterStats.charisma} ({formatModifier(getStatModifier(characterStats.charisma))})
+              </p>
+              <p className="text-left text-xs">Hit Points: {currentHP}</p>
+            </div>
           </div>
         )}
 
@@ -360,35 +379,25 @@ export default function ChooseSpecies() {
             <h3 className="text-xl mb-2">Pure-Strain Human Bonuses</h3>
             <p className="text-sm mb-4">Points remaining: {availablePoints}</p>
             <div className="grid grid-cols-2 gap-2">
-              {Object.entries(characterStats).map(([stat, value]) => (
-                <motion.button
-                  key={stat}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => {
-                    if (availablePoints > 0 && value < 18) {
-                      const newStats = { ...characterStats };
-                      newStats[stat as keyof CharacterStats] += 1;
-                      setCharacterStats(newStats);
-                      
-                      // Update points
-                      const newPoints = availablePoints - 1;
-                      setAvailablePoints(newPoints);
-                      
-                      // Save to localStorage
-                      localStorage.setItem('characterData', JSON.stringify({
-                        originalStats: initialStats,
-                        currentStats: newStats,
-                        hasIncreasedStats: newPoints === 0
-                      }));
-                    }
-                  }}
-                  disabled={availablePoints <= 0 || value >= 18}
-                  className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed flex justify-between items-center"
-                >
-                  <span className="uppercase">{stat.slice(0, 3)}</span>
-                  <span>{value} ({formatModifier(getStatModifier(value))})</span>
-                </motion.button>
-              ))}
+              {Object.entries(characterStats).map(([stat, value]) => {
+                const handleClick = () => {
+                  console.log('Button clicked for stat:', stat);
+                  increaseStat(stat as keyof CharacterStats);
+                };
+
+                return (
+                  <motion.button
+                    key={stat}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handleClick}
+                    disabled={availablePoints <= 0 || value >= 18}
+                    className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed flex justify-between items-center"
+                  >
+                    <span className="uppercase">{stat.slice(0, 3)}</span>
+                    <span>{value} ({formatModifier(getStatModifier(value))})</span>
+                  </motion.button>
+                );
+              })}
             </div>
           </div>
         )}
