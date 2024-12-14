@@ -41,4 +41,6 @@ export interface Creature {
   };
   abilities: string[];
   loot: string[];
+  encounters?: string[];
+  lairs?: string[];
 } 

@@ -5,7 +5,7 @@ import { getBasePath } from "@/lib/utils";
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['200', '400', '700'],
   style: ['normal', 'italic'],
   variable: '--font-poppins',
 });

@@ -28,6 +28,18 @@ export const creatures: Creature[] = [
     loot: [
       "Mutant Rat Hide",
       "Glowing Teeth"
+    ],
+    lairs: [
+      "Abandoned Sewer Tunnel: A filthy and dark tunnel system beneath the city, filled with stagnant water and glowing fungi. The Mutant Rat thrives in the damp, irradiated environment, hiding in the shadows and emerging to attack intruders.",
+      "Radiated Waste Pile: A mound of irradiated trash and scrap in the wasteland, surrounded by dangerous debris and the scent of decay. The Mutant Rat uses the pile as a nesting ground, feeding on whatever it can find amidst the radiation.",
+      "Collapsed Subway Station: A long-forgotten subway station, now a breeding ground for mutated creatures. The Mutant Rat nests in the dark recesses, using the tunnels to stalk and ambush any who enter the area.",
+      "Ruined Laboratory: A decaying research facility where radiation leaks and experimentation left the environment toxic. The Mutant Rat roams the derelict halls, mutated from exposure to the same toxic radiation that warped the building."
+    ],
+    encounters: [
+      "Glow in the Dark: The party is exploring a dark, underground tunnel when they are ambushed by the glowing eyes of the Mutant Rat. It lunges from the darkness, biting and spreading radiation sickness as the players try to fend it off.",
+      "Toxic Pursuit: While scavenging near a radiated pile of scrap, the players unknowingly disturb the Mutant Rat’s nest. The creature pursues them aggressively, using its darkvision to stalk the players through the toxic environment, striking from the shadows.",
+      "Nest Defense: The party stumbles upon a Mutant Rat's nest in an abandoned underground lab, only to have the creature defend its home. As the Rat attacks, its radioactive presence poisons the air, forcing the players to find cover or risk taking damage.",
+      "Radiation Spill: While navigating an old subway station, the players encounter a spill of dangerous radiation, which the Mutant Rat thrives in. The creature launches an ambush, forcing the players to deal with both the creature and the harmful radiation in the area."
     ]
   },
   {
@@ -55,13 +67,25 @@ export const creatures: Creature[] = [
       "Scrap Blade",
       "Makeshift Armor",
       "Salvaged Tech Parts"
+    ],
+    lairs: [
+      "Abandoned Highway Outpost: A makeshift camp along a forgotten stretch of highway, littered with scrap metal and old vehicles. The Wasteland Stalker uses wreckage for cover and hides among the abandoned vehicles.",
+      "Ruined Settlement: A collapsed town with dilapidated buildings and broken infrastructure. The Stalker uses the wreckage to ambush anyone who ventures too close, always ready to scavenge from the ruins.",
+      "Underground Bunker: A hidden bunker buried beneath the earth, its entrance protected by traps and debris. Inside, the Stalker has made a home of salvaged tech and old military supplies, always watching for intruders.",
+      "Old Factory Yard: A desolate industrial site, surrounded by crumbling machinery and rusting metal structures. The Stalker uses the factory's crumbling infrastructure for makeshift shelter and to craft weapons from the scraps."
+    ],
+    encounters: [
+      "Ambush on the Road: As the players travel through a barren stretch of highway, the Wasteland Stalker uses the wreckage of old vehicles to launch a surprise attack, leaping from the shadows to strike with a Scrap Blade.",
+      "Scavenger's Trade: The party comes across the Wasteland Stalker rummaging through an abandoned settlement. The Stalker may offer to trade items if approached carefully, but any attempt to steal from them could quickly turn into a dangerous standoff.",
+      "Trap Encounter: While investigating a ruined building, the party unknowingly triggers one of the Stalker's traps, designed to incapacitate or isolate intruders. The Stalker appears to confront the players, wielding their Scrap Blade.",
+      "Raid on a Tech Cache: The party stumbles upon a cache of valuable tech in the wasteland, only to find the Wasteland Stalker guarding it. A tense encounter unfolds as the Stalker defends their spoils, using the environment to their advantage."
     ]
   },
   {
     id: "toxic-bloom",
     name: "Toxic Bloom",
     type: "monster",
-    image: `${getBasePath()}/images/creatures/bloom.jpg`,
+    image: `${getBasePath()}/images/creatures/toxic-bloom.png`,
     description: "A massive, mutated flower that releases poisonous spores.",
     stats: {
       hd: 3,
@@ -83,6 +107,18 @@ export const creatures: Creature[] = [
       "Toxic Pollen",
       "Mutant Plant Fiber",
       "Bioluminescent Sap"
+    ],
+    encounters: [
+      "As the party makes their way through a jungle at dusk, the Toxic Bloom releases a cloud of spores in a sudden ambush, forcing the players to make quick decisions about whether to fight or flee while battling the effects of poison.",
+      "In a forgotten ruin, the party unknowingly disturbs the Toxic Bloom’s root network, which triggers an attack. The roots lash out, entangling players and forcing them into close quarters with the plant as it unleashes toxic spores.",
+      "A dense forest clearing becomes a trap as the Toxic Bloom hides among other plants. Players must differentiate between regular foliage and the deadly flower, risking a poisoned attack if they misstep, while dealing with aggressive mutated wildlife.",
+      "In a dark cavern or underground bunker, the players face the Toxic Bloom, its regeneration fueled by a shaft of light. The party must act quickly, either by closing off the sunlight source or eliminating the plant before it can regenerate enough to overwhelm them."
+    ],
+    lairs: [
+      "The Toxic Bloom resides in a large, decaying jungle clearing where the ground is slick with poisonous spores, and overgrown vines block the path. Sunlight filters through the canopy, allowing the Toxic Bloom to regenerate, but players will have to navigate dense plant life filled with smaller, venomous creatures.",
+      "Nestled deep within a cave system, the Toxic Bloom grows from the roots of an ancient tree that has burrowed into the stone. The lair is dark and damp, with toxic spores filling the air, and roots twist throughout the cavern, causing difficult terrain and sudden attacks if disturbed.",
+      "The Toxic Bloom has claimed an abandoned temple, its roots entwining around cracked statues and overgrown altars. The temple’s once sacred site now reeks of decay and poison, with the floor covered in toxic blooms that trigger spore bursts when disturbed.",
+      "In the heart of a foggy swamp, the Toxic Bloom thrives in a patch of sunlight, surrounded by murky waters. Poisonous plants and thick, humid air create an oppressive atmosphere, and the area is teeming with wildlife mutated by the spores."
     ]
   },
   {
@@ -111,6 +147,18 @@ export const creatures: Creature[] = [
       "Advanced Circuit Board",
       "Power Core",
       "Reinforced Plating"
+    ],
+    encounters: [
+      "In an abandoned research facility, the party accidentally activates the Scrap Golem by triggering a long-dormant security system. The Golem lumbers to life, using its slam attacks and electromagnetic pulse to disable any technological devices the party might rely on.",
+      "The players enter a destroyed lab where a group of survivors is trapped by the Scrap Golem, which is relentlessly patrolling the area. The party must navigate the ruined environment while dealing with the Golem’s devastating slams and finding a way to disable it.",
+      "While investigating an old scrapyard, the players encounter a Scrap Golem amid a violent electrical storm. The Golem’s electromagnetic pulse becomes even more dangerous, triggering nearby electrical hazards and threatening to fry any tech the players carry.",
+      "The party has tracked a valuable piece of ancient technology to a ruined military outpost, but the Scrap Golem stands in their way. They’ll need to figure out how to bypass the Golem’s damage resistance and disable it without getting caught in a direct confrontation."
+    ],
+    lairs: [
+      "The Scrap Golem roams the ruins of a long-forgotten factory, surrounded by heaps of scrap metal and abandoned assembly lines. The floor is littered with broken machinery, and the air crackles with the residual energy from old power generators, occasionally sparking.",
+      "Hidden beneath a decayed city, the Scrap Golem guards a high-tech vault filled with ancient machines and salvaged relics. The lair is filled with dormant tech, and the walls hum with energy, occasionally sparking to life as the Golem’s presence interferes with the environment.",
+      "Once a place of innovation, this old workshop is now a graveyard of old tools, half-finished inventions, and parts from destroyed automatons. The Scrap Golem uses these remnants to repair itself, and the area is filled with dangerous, unstable energy sources.",
+      "A small military outpost, long abandoned and overtaken by rust and disrepair. The Scrap Golem stands sentinel, guarding what remains of once-advanced tech, now deteriorating. Electronics around the outpost flicker, and the air is heavy with the hum of latent energy."
     ]
   },
   {
@@ -139,6 +187,18 @@ export const creatures: Creature[] = [
       "Psi-Enhancer",
       "Neural Interface",
       "Mind Crystal"
+    ],
+    lairs: [
+      "Abandoned Watchtower: A ruined tower high above the wasteland, its walls covered in strange psychic symbols. The Psi-Raider uses the vantage point to dominate the minds of those below and control the surrounding area, watching for intruders.",
+      "Underground Bunker: A hidden base deep underground, filled with makeshift psychic amplifiers and research equipment. The Psi-Raider uses the dark, claustrophobic space to trap and manipulate victims, employing psychic defenses to ward off attackers.",
+      "Ruined Research Lab: An old research facility where experiments on psychic enhancement went wrong. The Psi-Raider has turned the lab into a stronghold, using the remnants of psychic technology to increase their mental powers and control weaker minds.",
+      "Deserted Town Hall: An eerie, empty town hall overtaken by psychic energy. The Psi-Raider has set up a base here, using the mind-altering ambiance to manipulate survivors who come near, pushing them to act as unwitting pawns."
+    ],
+    encounters: [
+      "Ambush in the Ruins: The players stumble into an ambush in a crumbling city, as the Psi-Raider uses their Mind Blast to catch them off-guard. The Raider forces players into a corner, using their telekinetic shield to defend against ranged attacks while picking them off one by one.",
+      "Psychic Standoff: The Psi-Raider challenges the party to a mental duel. They attempt to use Mental Domination to turn players against each other, all while using Mind Blast to disorient and deal psychic damage. Players must overcome the Raider’s mental influence to stop the battle.",
+      "Possession of the Strong: The Psi-Raider uses their Mental Domination ability to take control of one of the party members, forcing the others to fight against their ally or risk being overwhelmed. The party must break the charm before the dominated player can cause too much harm.",
+      "High Ground Showdown: On a ruined skyscraper, the Psi-Raider uses their telekinetic shield and psychic powers to try and force the players off the high ground. The party must close the gap and fight at a distance, as the Raider uses the environment and their mind powers to disorient them."
     ]
   },
   {
@@ -164,6 +224,18 @@ export const creatures: Creature[] = [
     ],
     loot: [
       "None"
+    ],
+    lairs: [
+      "Radioactive Wasteland: A barren stretch of irradiated wasteland, where twisted, mutated creatures roam. The Rad-Zombie blends into the decaying landscape, lurking in the radiation-rich environment, searching for prey.",
+      "Abandoned Nuclear Power Plant: The remnants of a once-thriving power plant, now overrun with radiation and the undead. The Rad-Zombie shuffles through the decayed machinery and hazardous zones, its radiation-scorched skin blending with the radioactive ruins.",
+      "Ruined City Block: A destroyed part of the city, still heavily contaminated with radiation. The Rad-Zombie wanders the streets, feeding on anything it finds, with toxic air and dangerous radiation levels preventing safe travel.",
+      "Fallout Shelter: A makeshift shelter deep underground, once designed for protection from radiation, now overrun with the mutated and hungry. The Rad-Zombie shuffles between the bunkers and irradiated zones, scavenging for flesh in a toxic, sealed environment."
+    ],
+    encounters: [
+      "Radiation Ambush: As the party traverses an irradiated wasteland, the Rad-Zombie stumbles out from a pile of debris, its hunger for flesh overwhelming its caution. The party faces both the zombie and the threat of ongoing radiation sickness from the toxic environment.",
+      "Shelter Breach: The party enters an abandoned fallout shelter in search of supplies, but the Rad-Zombie has already taken up residence. As the players explore, the Rad-Zombie attacks, spreading radiation sickness as it claws at their flesh.",
+      "Contaminated Streets: While traveling through a ruined, radiation-soaked city, the party is stalked by a Rad-Zombie lurking in the shadows. Its slow but steady approach forces the players to either engage or flee, all while fighting the dangerous radiation around them.",
+      "Nuclear Remnants: The party explores the ruins of an old nuclear power plant, unaware that the Rad-Zombie is lurking nearby. They must navigate through radiated corridors while fighting off the zombie, whose very presence exacerbates the radiation sickness in the air."
     ]
   },
   {
@@ -192,6 +264,18 @@ export const creatures: Creature[] = [
       "Corrosive Gland",
       "Metallic Carapace",
       "Sensor Antennae"
+    ],
+    lairs: [
+      "Rusting Scrap Yard: A vast junkyard filled with decaying vehicles, broken machinery, and piles of rusting scrap metal. The Rust Beetle hides among the heaps of metal, using its corrosive abilities to break down anything of value left behind.",
+      "Abandoned Forge: An old, forgotten forge where rust has eaten away at tools and equipment. The Rust Beetle nestles among the ruined metalworks, feeding on the remnants of tools and weapons, guarding its territory with a keen sense of metal.",
+      "Corroded Mineshaft: A decrepit mineshaft where the air is thick with dust and the stench of decay. Rusted mine carts and metal supports litter the area, making it an ideal lair for the Rust Beetle to thrive while corroding any exposed metal.",
+      "Forgotten Industrial Complex: A once-bustling factory now abandoned and filled with decaying machines. The Rust Beetle scuttles through the labyrinth of corridors and workstations, using its corrosive touch to break down anything that might still be useful."
+    ],
+    encounters: [
+      "Junkyard Clash: As the party explores a desolate scrap yard, the Rust Beetle emerges from a pile of rusted metal, attacking with its powerful bite and corrosive touch. The party must fight the beetle while avoiding the damage it causes to their gear.",
+      "Forge Defense: The party enters an abandoned forge, only to find it infested with Rust Beetles. These creatures use their Metal Sense to target the party’s weapons and armor, corroding them on contact, while the beetles attack with their poisonous bite.",
+      "Mining Disaster: While navigating through an old mineshaft, the players disturb a nest of Rust Beetles. As the creatures swarm, their corrosive abilities start to damage metal tools and weapons, forcing the party to either defend or retreat from the collapsing environment.",
+      "Industrial Ambush: As the party explores an abandoned factory, they unknowingly trigger a trap set by the Rust Beetles. The creatures begin to attack in swarms, using their corrosive touch to damage the party’s armor and weapons, making a fight in the factory dangerous and costly."
     ]
   },
   {

@@ -7,6 +7,12 @@ import { getStatModifier, formatModifier } from "@/lib/utils";
 import { type Creature } from "@/lib/types";
 import { creatures } from "@/lib/bestiary";
 import PageHeader from "@/components/page-header";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { ChevronDown } from "lucide-react"
 
 export default function Bestiary() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,12 +56,12 @@ export default function Bestiary() {
         </div>
 
         {/* Creature List */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {filteredCreatures.map((creature) => (
             <motion.div
               key={creature.id}
               className="bg-neutral-900 p-4 rounded-lg"
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
             >
               
               <h2 className="text-xl font-bold">{creature.name}</h2>
@@ -101,16 +107,37 @@ export default function Bestiary() {
                 </div>
               )}
 
-              {creature.loot && (
-                <div className="mt-2">
-                  <h3 className="font-bold">Loot:</h3>
-                  <ul className="list-disc list-inside text-sm">
-                    {creature.loot.map((item: string, index: number) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+              {(creature.encounters || creature.lairs) && (
+                <Collapsible className="w-full mt-4">
+                  <CollapsibleTrigger className="flex items-center gap-2 group font-bold" aria-controls="creature-info-content" aria-expanded="false">
+                    Additional Info
+                    <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" aria-hidden="true" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent id="creature-info-content" className="flex flex-col gap-4">
+                    {creature.encounters && (
+                      <div className="mt-2">
+                        <h3 className="font-bold">Encounters:</h3>
+                        <ol className="list-decimal list-inside text-sm">
+                          {creature.encounters.map((item: string, index: number) => (
+                            <li key={index} className="mt-2 text-sm p-4 rounded-lg bg-neutral-800 ">{item}</li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+                    {creature.lairs && (
+                      <div className="mt-2">
+                        <h3 className="font-bold">Lairs:</h3>
+                        <ol className="list-decimal list-inside text-sm">
+                          {creature.lairs.map((item: string, index: number) => (
+                            <li key={index} className="mt-2 text-sm p-4 rounded-lg bg-neutral-800">{item}</li>
+                          ))}
+                        </ol>
+                      </div>
+                    )}
+                  </CollapsibleContent>
+                </Collapsible>
               )}
+              
             </motion.div>
           ))}
         </div>
