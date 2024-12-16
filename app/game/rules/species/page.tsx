@@ -2,6 +2,8 @@
 import React from 'react'
 import NavigationButtons from "@/components/navigation-buttons";
 import PageHeader from "@/components/page-header";
+/* import Image from "next/image";
+import { getBasePath } from '@/lib/utils'; */
 
 const Page = () => {
   return (
@@ -61,7 +63,14 @@ const Page = () => {
 </ul>
 </div>
 <div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
-<h3 id="zombo" className="text-white font-bold text-xl">Zombo</h3>
+<h3 id="zombo" className="text-white font-bold text-xl">Zombo( AKA Tommyboy)</h3>
+{/* <Image 
+  src={`${getBasePath()}/images/creatures/zombos.png`} 
+  alt="Zombo" 
+  width={500}
+  height={300}
+  className="h-auto w-full mt-1 mb-1"
+/> */}
 <p><strong>Benefits:</strong></p>
 <ul className="list-disc list-inside">
 <li>+2 Constitution</li>

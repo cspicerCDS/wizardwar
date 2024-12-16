@@ -10,6 +10,8 @@ import { Menu, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { getBasePath } from "@/lib/utils"
+//import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
+
 
 export default function Header() {
   return (
@@ -88,7 +90,14 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="w-10" />
+        <div className="ml-auto mr-2">
+        {/*   <SignedOut>
+            <SignInButton mode="modal" className="text-white" />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn> */}
+        </div>
       </div>
     </header>
   )

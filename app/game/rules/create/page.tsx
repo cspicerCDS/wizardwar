@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import PageHeader from "@/components/page-header";
 import { getStatModifier, ensureMinimumHP } from "@/lib/utils";
 import NavigationButtons from "@/components/navigation-buttons";
+//import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 interface Stats {
   strength: number;
@@ -231,45 +232,61 @@ export default function CreateCharacter() {
 
         <PageHeader title="Create Your Character" />
 
-        {/* Separate roll stats button */}
-        <motion.button 
-          whileTap={{ scale: 0.9 }}
-          className="border border-white p-4 rounded-lg text-white" 
-          onClick={rollStats}
-        >
-          Roll Stats
-        </motion.button>
+        {/* <SignedIn> */}
+          {/* Separate roll stats button */}
+          <motion.button 
+            whileTap={{ scale: 0.9 }}
+            className="border border-white p-4 rounded-lg text-white" 
+            onClick={rollStats}
+          >
+            Roll Stats
+          </motion.button>
 
-        {currentStats.strength > 0 && (
-          <>
-            <div className="grid grid-cols-3 gap-4 text-lg text-white">
-              {Object.entries(currentStats).map(([stat, value]) => (
-                <React.Fragment key={stat}>
-                  <div className="font-bold text-xl capitalize">{stat}:</div>
-                  <div className="text-center font-bold group relative">
-                    {value}
-                    {!hasIncreasedStats && value < 18 && (
-                      <motion.button
-                        whileTap={{ scale: 0.9 }}
-                        className="absolute -right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => increaseStat(stat as keyof Stats)}
-                      >
-                        +
-                      </motion.button>
-                    )}
-                  </div>
-                  <div className="text-left">
-                    {getModifier(value) >= 0 ? `+${getModifier(value)}` : getModifier(value)}
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-            <NavigationButtons 
-              forwardPath="/game/rules/create/species/"
-              forwardLabel="Choose Species"
-            />
-          </>
-        )}
+          {currentStats.strength > 0 && (
+            <>
+              <div className="grid grid-cols-3 gap-4 text-lg text-white">
+                {Object.entries(currentStats).map(([stat, value]) => (
+                  <React.Fragment key={stat}>
+                    <div className="font-bold text-xl capitalize">{stat}:</div>
+                    <div className="text-center font-bold group relative">
+                      {value}
+                      {!hasIncreasedStats && value < 18 && (
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
+                          className="absolute -right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
+                          onClick={() => increaseStat(stat as keyof Stats)}
+                        >
+                          +
+                        </motion.button>
+                      )}
+                    </div>
+                    <div className="text-left">
+                      {getModifier(value) >= 0 ? `+${getModifier(value)}` : getModifier(value)}
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
+              <NavigationButtons 
+                forwardPath="/game/rules/create/species/"
+                forwardLabel="Choose Species"
+              />
+            </>
+          )}
+      {/* </SignedIn> */}
+{/* 
+     <SignedOut> 
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-xl">Please sign in to create a character</h2>
+            <SignInButton mode="modal">
+              <motion.button 
+                whileTap={{ scale: 0.9 }}
+                className="border border-white p-4 rounded-lg text-white"
+              >
+                Sign In
+              </motion.button>
+            </SignInButton>
+          </div>
+      </SignedOut>  */}
       </main>
     </div>
   );

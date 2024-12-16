@@ -6,6 +6,7 @@ export const creatures: Creature[] = [
     id: "mutant-rat",
     name: "Mutant Rat",
     type: "beast",
+    size: "small",
     image: `${getBasePath()}/images/creatures/mutant-rat.png`,
     description: "A massive, radiation-warped rodent with glowing eyes.",
     stats: {
@@ -46,7 +47,8 @@ export const creatures: Creature[] = [
     id: "wasteland-stalker",
     name: "Wasteland Stalker",
     type: "humanoid",
-    image: `${getBasePath()}/images/creatures/stalkerwip.png`,
+    size: "medium",
+    image: `${getBasePath()}/images/creatures/wasteland-stalker.png`,
     description: "A cunning survivor equipped with makeshift armor and scavenged weapons.",
     stats: {
       hd: 2,
@@ -85,6 +87,7 @@ export const creatures: Creature[] = [
     id: "toxic-bloom",
     name: "Toxic Bloom",
     type: "monster",
+    size: "large",
     image: `${getBasePath()}/images/creatures/toxic-bloom.png`,
     description: "A massive, mutated flower that releases poisonous spores.",
     stats: {
@@ -125,6 +128,7 @@ export const creatures: Creature[] = [
     id: "scrap-golem",
     name: "Scrap Golem",
     type: "monster",
+    size: "large",
     image: `${getBasePath()}/images/creatures/scrap.png`,
     description: "An autonomous construct built from salvaged machinery and ancient tech.",
     stats: {
@@ -165,12 +169,13 @@ export const creatures: Creature[] = [
     id: "psi-raider",
     name: "Psi-Raider",
     type: "humanoid",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/raiderwip.png`,
     description: "A psychically awakened bandit who uses mental powers to terrorize survivors.",
     stats: {
       hd: 4,
       hp: 18,
-      armor: "medium",
+      armor: "none",
       str: 11,
       dex: 14,
       con: 12,
@@ -205,6 +210,7 @@ export const creatures: Creature[] = [
     id: "rad-zombie",
     name: "Rad-Zombie",
     type: "humanoid",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/rad-zombie.jpg`,
     description: "A radioactive-mutated humanoid with a craving for flesh.",
     stats: {
@@ -242,6 +248,7 @@ export const creatures: Creature[] = [
     id: "rust-beetle",
     name: "Rust Beetle",
     type: "beast",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/rustbeetle.png`,
     description: "A large insectoid that secretes corrosive chemicals that rapidly decay metal.",
     stats: {
@@ -279,9 +286,10 @@ export const creatures: Creature[] = [
     ]
   },
   {
-    id: "armon-zhul",
-    name: "Armon Zhul - WIZARD",
+    id: "ammon-zhul",
+    name: "Ammon Zhul - WIZARD",
     type: "npc",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/armon-zhul.png`,
     description: "A radioactive-mutated humanoid using found tech to dominate his surroundings",
     stats: {
@@ -307,6 +315,7 @@ export const creatures: Creature[] = [
     id: "zhul-raider",
     name: "Zhul Raider",
     type: "humanoid",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/zhul-raider.png`,
     description: "Masked raiders serving Armon Zhul",
     stats: {
@@ -331,6 +340,7 @@ export const creatures: Creature[] = [
     id: "zhul-elite",
     name: "Zhul Elite",
     type: "humanoid",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/zhul-elites.png`,
     description: "Rad-rod infused raiders serving Armon Zhul",
     stats: {
@@ -356,6 +366,7 @@ export const creatures: Creature[] = [
     id: "titan-lord",
     name: "Titan Lord - WIZARD",
     type: "npc",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/titan-lord.png`,
     description: "Discovered the Titan Graveyard and terrorizes the wasteland flying in his titan skull",
     stats: {
@@ -380,6 +391,7 @@ export const creatures: Creature[] = [
     id: "chaos-lich",
     name: "Chaos Lich - WIZARD",
     type: "npc",
+    size: "medium",
     image: `${getBasePath()}/images/creatures/lich-dude.png`,
     description: "Created his phylactery by tapping into the chaos realm and using the ichor of chaos krill, beings that feed on untapped chaotic energy",
     stats: {
@@ -398,6 +410,89 @@ export const creatures: Creature[] = [
     ],
     loot: [
       "tbd"
+    ]
+  },
+  {
+    id: "fomorion",
+    name: "Fomorion",
+    type: "monster",
+    size: "large",
+    image: `${getBasePath()}/images/creatures/fomorion.png`,
+    description: "Giant humanoid with a insect like head",
+    stats: {
+      hd: 4,
+      hp: 22,
+      armor: "medium",
+      str: 17,
+      dex: 14,
+      con: 16,
+      int: 8,
+      wis: 7,
+      cha: 7,
+    },
+    abilities: [
+      "2 Bash attacks: 1d8+2 bludgeoning damage",
+      "If both attacks are successful: auto-hit Bite d6+2 piercing damage",
+    ],
+    loot: [
+      "A jagged obsidian blade covered in dried ichor, surprisingly sharp and worth 25 gold pieces.",
+      "A pouch of oddly glowing insect carapace shards that can be used as crafting materials for alchemical items.",
+      "An ancient copper circlet etched with strange, insectoid runes, faintly magical and possibly cursed.",
+    ]
+    ,
+    lairs: [
+      "A crumbling stone tower overgrown with ivy and moss, littered with the bones of large animals and half-buried broken weapons.",
+      "A cavernous pit in a forest clearing, strewn with insect shells, tangled roots, and the treasure of those it has devoured.",
+      "A desolate canyon riddled with crevices, where the Fomorion nests among shimmering, sticky resin that traps prey.",
+      "An abandoned quarry, its central pit now filled with rainwater and surrounded by the scattered remnants of ancient machinery."
+    ],
+    encounters: [
+      "A Fomorion lurks in a ruined bridge, attacking travelers who try to cross while scavenging metal and wood for unknown purposes.",
+      "The creature emerges from a misty swamp, drawn by the noise of a nearby encampment and attacks under cover of fog.",
+      "A wounded Fomorion rampages through a forest, swatting at imagined threats after being stung by giant hornets.",
+      "Villagers offer up livestock as sacrifices to a Fomorion prowling near their farmland, pleading with adventurers to slay it."
+    ]
+
+  },
+  {
+    id: "chaos-mouther",
+    name: "Chaos Mouther",
+    type: "demonic",
+    size: "large",
+    image: `${getBasePath()}/images/creatures/chaos-mouther.png`,
+    description: "Escapee from the chaos realm as a result of black magic",
+    stats: {
+      hd: 6,
+      hp: 28,
+      armor: "heavy",
+      str: 16,
+      dex: 14,
+      con: 16,
+      int: 14,
+      wis: 14,
+      cha: 14,
+    },
+    abilities: [
+      "Fear: 20ft radius, 12DC Wisdom save or be frightened",
+      "Chaotic Aura: 10ft radius, 1d6 psychic damage to all creatures in the area",
+      "Insubstantial: Immune to non-magical weapons",
+      "Incorporeal Movement: Can move through solid objects",
+      "1d8 Mouth attacks: +4 to hit, 1d6 piercing damage",
+    ],
+    loot: [
+      "tbd"
+    ],
+    lairs: [
+      "Warped Cavern: A twisted, crumbling cave where reality seems unstable, with walls flickering between solid and ethereal, and the constant hum of psychic energy.",
+      "Chaotic Nexus: A ruptured section of the material plane where the boundaries between worlds are thin, leaking chaotic energy that twists and warps everything within it.",
+      "Abyssal Ruins: An ancient, decaying temple to a forgotten demonic power, now home to the Chaos Mouther, whose presence distorts time and space.",
+      "Flesh-Infested Wasteland: A ruined battlefield littered with the rotting corpses of previous victims, the Mouther's chaotic aura causing them to mutate and warp into monstrous forms."
+    ],
+    encounters: [
+      "Solo Ambush: A Chaos Mouther emerges from a tear in reality in a desolate location, its aura distorting the air around it.",
+      "Cultist Summoning: The creature is accompanied by a group of fanatical cultists who are attempting to control its chaotic power, each contributing to its abilities.",
+      "Rogue Elementals: The Chaos Mouther is found in the company of wild, rogue elemental spirits that it commands or is drawn to due to its unstable nature.",
+      "Corrupted Travelers: A group of cursed adventurers has been possessed by the Mouther's chaotic influence, and they now fight with its abilities against anyone who comes near."
     ]
   },
 ]; 
