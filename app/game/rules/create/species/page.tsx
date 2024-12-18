@@ -78,6 +78,16 @@ export default function ChooseSpecies() {
     if (initialStats) {
       const newStats = { ...initialStats };
       
+      // If selecting Psychant, assign a random mental ability
+      if (value === 'psychant') {
+        const randomAbility = mentalAbilities[Math.floor(Math.random() * mentalAbilities.length)];
+        setSelectedMentalAbility(randomAbility);
+        localStorage.setItem('characterMentalAbility', JSON.stringify(randomAbility));
+      } else {
+        setSelectedMentalAbility(null);
+        localStorage.removeItem('characterMentalAbility');
+      }
+
       // Reset HP to base value plus initial CON modifier
       const baseHP = parseInt(localStorage.getItem('baseHP') || '0');
       const initialConMod = getStatModifier(initialStats.constitution);

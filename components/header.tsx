@@ -58,6 +58,12 @@ export default function Header() {
                 >
                   Classes
                 </Link>
+                <Link
+                  href="/game/rules/mutations/"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Mutations
+                </Link>
   </CollapsibleContent>
 </Collapsible>
               

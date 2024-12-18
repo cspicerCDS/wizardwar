@@ -170,7 +170,7 @@ export const creatures: Creature[] = [
     name: "Psi-Raider",
     type: "humanoid",
     size: "medium",
-    image: `${getBasePath()}/images/creatures/raiderwip.png`,
+    image: `${getBasePath()}/images/creatures/psi-raider.png`,
     description: "A psychically awakened bandit who uses mental powers to terrorize survivors.",
     stats: {
       hd: 4,
@@ -211,7 +211,7 @@ export const creatures: Creature[] = [
     name: "Rad-Zombie",
     type: "humanoid",
     size: "medium",
-    image: `${getBasePath()}/images/creatures/rad-zombie.jpg`,
+    image: `${getBasePath()}/images/creatures/rad-zombie.png`,
     description: "A radioactive-mutated humanoid with a craving for flesh.",
     stats: {
       hd: 1,
