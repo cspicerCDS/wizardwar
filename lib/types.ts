@@ -41,7 +41,7 @@ export interface Creature {
     cha: number;
   };
   abilities: string[];
-  loot: string[];
+  loot?: string[];
   encounters?: string[];
   lairs?: string[];
 } 

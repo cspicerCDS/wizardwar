@@ -273,7 +273,7 @@ export default function ChooseSpecies() {
 
   return (
     <div className=" bg-black text-white">
-      <main className="flex flex-col gap-8 row-start-2 items-center">
+      <section className="flex flex-col gap-8 row-start-2 items-center">
      
         <PageHeader title="Choose Your Species" />
 
@@ -448,7 +448,7 @@ export default function ChooseSpecies() {
           forwardLabel="Choose Class"
           isForwardDisabled={!selectedSpecies || (selectedSpecies === 'hybrid' && !hybridType)}
         />
-      </main>
+      </section>
     </div>
   );
 } 

@@ -8,7 +8,7 @@ import { getBasePath } from '@/lib/utils'; */
 const Page = () => {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center bg-black text-white">
-    <main className="flex flex-col gap-8 row-start-2 items-center w-full">
+    <section className="flex flex-col gap-8 row-start-2 items-center w-full">
        <PageHeader title="Species" />
       <div className="text-left text-white">
       <div className="species mb-4 bg-neutral-900 p-6 rounded-lg">
@@ -91,7 +91,7 @@ const Page = () => {
             forwardLabel="Classes"
             />
         </div>
-    </main>
+    </section>
     </div>
   )
 }

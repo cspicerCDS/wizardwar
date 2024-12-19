@@ -16,7 +16,7 @@ const Page = () => {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center  bg-black text-white">
-      <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-2xl">
+      <section className="flex flex-col gap-8 row-start-2 items-center w-full max-w-2xl">
         <PageHeader title="Attributes & Modifiers" />
         {/* Modifier Table */}
         <div className="w-full overflow-x-auto">
@@ -82,7 +82,7 @@ const Page = () => {
             forwardLabel="Species"
             />
         </div>
-      </main>
+      </section>
     </div>
   );
 };

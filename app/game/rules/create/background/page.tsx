@@ -38,7 +38,7 @@ export default function ChooseBackground() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center   bg-black text-white">
-      <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-md">
+      <section className="flex flex-col gap-8 row-start-2 items-center w-full max-w-md">
         
         <PageHeader title="Choose Your Background" />
 
@@ -80,7 +80,7 @@ export default function ChooseBackground() {
           forwardLabel="Summary"
           isForwardDisabled={!selectedBackground}
         />
-      </main>
+      </section>
     </div>
   );
 } 

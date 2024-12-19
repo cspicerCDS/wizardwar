@@ -227,7 +227,7 @@ export default function CreateCharacter() {
 
   return (
     <div className=" bg-black text-white">
-      <main className="flex flex-col gap-8 row-start-2 items-center">
+      <section className="flex flex-col gap-8 row-start-2 items-center">
    
 
         <PageHeader title="Create Your Character" />
@@ -287,7 +287,7 @@ export default function CreateCharacter() {
             </SignInButton>
           </div>
       </SignedOut>  */}
-      </main>
+      </section>
     </div>
   );
 } 

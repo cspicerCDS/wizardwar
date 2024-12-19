@@ -7,7 +7,7 @@ import { motion } from "framer-motion"; */
 
 export default function Rules() {
   return (
-    <main className="flex flex-col gap-8 items-center ">
+    <section className="flex flex-col gap-8 items-center ">
         <PageHeader title="Introduction" />
       <h2 className="text-2xl font-bold text-white">Diabolical Despots Wage War on All</h2>
         <p className="text-white text-left">Wizard War is a Science Fantasy TTRPG in the vein of the <em>Old-School Dungeons & Dragons</em> with a bit of <em>Thundarr the Barbarian</em>, <em>Jack Kirby</em> and <em>Dying Earth</em> thrown in.</p>
@@ -30,6 +30,6 @@ export default function Rules() {
           </Link>
         </SignedIn> */}
        
-    </main>
+    </section>
   );
 } 

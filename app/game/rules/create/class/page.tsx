@@ -47,7 +47,7 @@ export default function ChooseClass() {
 
   return (
     <div className=" bg-black text-white">
-      <main className="flex flex-col gap-8 row-start-2 items-center">
+      <section className="flex flex-col gap-8 row-start-2 items-center">
 
         <PageHeader title="Choose Your Class" />
         
@@ -108,7 +108,7 @@ export default function ChooseClass() {
           forwardLabel="Choose Background"
           isForwardDisabled={!selectedClass}
         />
-      </main>
+      </section>
     </div>
   );
 } 

@@ -1,5 +1,5 @@
 export default function MutationsPage() {
-  return <div className="text-white">
+  return <section  className="text-white">
     <table className="table-auto">
   <thead>
     <tr className="bg-neutral-800">
@@ -411,5 +411,5 @@ export default function MutationsPage() {
   </tbody>
 </table>
 
-  </div>
+  </section>
 }
