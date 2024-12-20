@@ -8,7 +8,7 @@ export interface Background {
   equipment: string[];
 }
 
-const backgrounds: Background[] = [
+export const backgrounds: Background[] = [
   // Pure-Strain Human Backgrounds
   {
     id: 'vault-dweller',

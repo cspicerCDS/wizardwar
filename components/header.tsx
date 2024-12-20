@@ -59,6 +59,12 @@ export default function Header() {
                   Classes
                 </Link>
                 <Link
+                  href="/game/rules/backgrounds/"
+                  className="text-sm font-medium hover:underline"
+                >
+                  Backgrounds
+                </Link>
+                <Link
                   href="/game/rules/mutations/"
                   className="text-sm font-medium hover:underline"
                 >

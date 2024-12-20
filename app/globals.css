@@ -116,3 +116,48 @@ body {
     scrollbar-width: none;
   }
 }
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.25in 0.5in;
+  }
+
+  body , body * {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Make text darker for better printing */
+  .text-flor-green,
+  .text-flor-orange {
+    color: black !important;
+  }
+
+  /* Ensure borders are visible */
+  .border-white {
+    border-color: black !important;
+  }
+
+  /* Background colors for cards */
+  .bg-neutral-900 {
+    background-color: white !important;
+    border: 1px solid black !important;
+  }
+  nav,.w-100,header {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+  
+  img {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

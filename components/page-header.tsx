@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 
 interface PageHeaderProps {
   title: string
+  className?: string
 }
 
 export default function PageHeader({
