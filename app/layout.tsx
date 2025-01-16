@@ -21,13 +21,29 @@ const rubikDirt = Rubik_Dirt({
 export const metadata: Metadata = {
   title: "Wizard War",
   description: "Diabolical Despots Wage War On All",
-  icons: {
-    icon: [
+  openGraph: {
+    title: 'Wizard War',
+    description: 'Diabolical Despots Wage War On All',
+    images: [
       {
-        url: `${getBasePath()}/favicon.ico`,
-        sizes: 'any',
-      },
+        url: `${getBasePath()}/images/ww-logo.svg`,
+        width: 454,
+        height: 98,
+        alt: 'Wizard War Logo',
+      }
     ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wizard War',
+    description: 'Diabolical Despots Wage War On All',
+    images: [`${getBasePath()}/images/ww-logo.svg`],
+    creator: '@yourtwitterhandle',
+  },
+  icons: {
+    icon: [{ url: `${getBasePath()}/favicon.ico`, sizes: 'any' }],
   },
 };
 

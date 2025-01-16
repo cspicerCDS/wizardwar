@@ -22,7 +22,7 @@ export interface MentalAbility {
   drawback?: string;
 }
 
-export interface Creature {
+export type Creature = {
   id: string;
   name: string;
   type: string;

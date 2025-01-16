@@ -7,6 +7,7 @@ import { type Creature } from "@/lib/types";
 import PageHeader from "@/components/page-header";
 import CreatureCard from "@/components/creature-card";
 import { LayoutGrid, List, Search } from "lucide-react";
+import Link from "next/link";
 
 export default function Bestiary() {
   const router = useRouter();
@@ -75,7 +76,9 @@ export default function Bestiary() {
         {isGridView ? (
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredCreatures.map((creature) => (
+              <Link href={`/game/rules/bestiary/${creature.id}`} key={creature.id}>
               <CreatureCard key={creature.id} creature={creature} />
+              </Link>
             ))}
           </div>
         ) : (

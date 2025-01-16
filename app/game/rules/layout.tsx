@@ -27,11 +27,14 @@ export default function RulesLayout({
               className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
 >Rules</Link>
               <Link href="/game/rules/create/" 
-                            className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/combat/' ? 'bg-neutral-700 rounded-lg ' : 'hover:bg-neutral-800'}`}
+                            className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/create/' ? 'bg-neutral-700 rounded-lg ' : 'hover:bg-neutral-800'}`}
 >Create Character</Link>
               <Link href="/game/rules/bestiary"               
               className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/rules/bestiary/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
               >Bestiary</Link>
+               <Link href="/game/vault/"               
+              className={`p-2 text-white hover:text-gray-300 hover:rounded-lg whitespace-nowrap ${pathname === '/game/vault/' ? 'bg-neutral-700 rounded-lg' : 'hover:bg-neutral-800'}`}
+              >Vault Dwellings</Link>
             </div>
           </div>
         </nav>

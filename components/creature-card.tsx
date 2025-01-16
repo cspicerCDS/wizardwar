@@ -6,14 +6,20 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { ChevronDown } from "lucide-react"
 import { type Creature } from "@/lib/types"
 import { formatModifier, getStatModifier } from "@/lib/utils"
+import { useRouter } from "next/navigation"
+
 
 export default function CreatureCard({ creature }: { creature: Creature }) {
+  const router = useRouter()
+
   return (
     <motion.div
       className="bg-neutral-900 p-4 rounded-lg"
       whileHover={{ scale: 1.01 }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      onClick={() => router.push(`/game/rules/bestiary/${creature.id}`)}
+
     >
       <h2 className="text-xl font-bold">{creature.name}</h2>
       <p className="text-sm text-neutral-400 capitalize">{creature.type}</p>

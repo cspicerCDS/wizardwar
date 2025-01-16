@@ -137,7 +137,10 @@ body {
   .text-flor-orange {
     color: black !important;
   }
-
+h1 {
+  font-size: 1rem !important;
+}
+.logo {margin-bottom: 0 !important;}
   /* Ensure borders are visible */
   .border-white {
     border-color: black !important;
@@ -155,7 +158,10 @@ body {
   .print\:block {
     display: block !important;
   }
-  
+
+  textarea::placeholder-shown {
+    display: none !important;
+  }
   img {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
